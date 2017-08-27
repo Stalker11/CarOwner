@@ -2,19 +2,22 @@ package com.olegel.carowner.models;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import com.olegel.carowner.util.AppConstants;
 
 /**
  * Created by Oleg on 27.08.2017.
  */
 @DatabaseTable(tableName = "Driver")
 public class DriverModel {
-    @DatabaseField
+    @DatabaseField(id = true)
+    private int id;
+    @DatabaseField (columnName = AppConstants.DRIVER_NAME)
     private String driverName;
-    @DatabaseField
+    @DatabaseField (columnName = AppConstants.DRIVER_LAST_NAME)
     private String driverLastName;
-    @DatabaseField
+    @DatabaseField (columnName = AppConstants.DRIVER_CATEGORY)
     private String driverCategory;
-    @DatabaseField
+    @DatabaseField (columnName = AppConstants.CAR_OWN)
     private String carOwn;
 
     public String getDriverName() {
@@ -47,5 +50,13 @@ public class DriverModel {
 
     public void setCarOwn(String carOwn) {
         this.carOwn = carOwn;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
