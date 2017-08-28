@@ -29,6 +29,7 @@ public class DataBaseHelper extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
             TableUtils.createTable(connectionSource, DriverModel.class);
+            TableUtils.createTable(connectionSource, VehicleModel.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }

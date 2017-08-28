@@ -32,6 +32,7 @@ public class VehicleStorage {
     public void write(VehicleModel vehicle) {
         try {
             HelperFactory.getHelper().getDaoVehicle().createOrUpdate(vehicle);
+            Log.d(TAG, "write:vehicle ");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -46,6 +47,7 @@ public class VehicleStorage {
         List<VehicleModel> vehicles = null;
         try {
             vehicles = HelperFactory.getHelper().getDaoVehicle().queryForAll();
+            Log.d(TAG, "readAll: vehicle");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -66,7 +68,7 @@ public class VehicleStorage {
             searchBy.where().like(columnName, generateRequestString(parameter));
             prepared = searchBy.prepare();
             vehicles = HelperFactory.getHelper().getDaoVehicle().query(prepared);
-
+            Log.d(TAG, "selectBy: vehicle");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -81,7 +83,7 @@ public class VehicleStorage {
     public void delete(VehicleModel vehicle) {
         try {
             int deleted = HelperFactory.getHelper().getDaoVehicle().delete(vehicle);
-            Log.d(TAG, "deleteFilm: " + deleted);
+            Log.d(TAG, "deleteFilm:vehicle " + deleted);
         } catch (SQLException e) {
             Log.d(TAG, "deleteFilm error: ");
         }

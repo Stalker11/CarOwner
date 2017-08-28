@@ -11,13 +11,13 @@ import com.olegel.carowner.util.AppConstants;
 public class DriverModel {
     @DatabaseField(id = true)
     private int id;
-    @DatabaseField (columnName = AppConstants.DRIVER_NAME)
+    @DatabaseField(columnName = AppConstants.DRIVER_NAME)
     private String driverName;
-    @DatabaseField (columnName = AppConstants.DRIVER_LAST_NAME)
+    @DatabaseField(columnName = AppConstants.DRIVER_LAST_NAME)
     private String driverLastName;
-    @DatabaseField (columnName = AppConstants.DRIVER_CATEGORY)
+    @DatabaseField(columnName = AppConstants.DRIVER_CATEGORY)
     private String driverCategory;
-    @DatabaseField (columnName = AppConstants.CAR_OWN)
+    @DatabaseField(columnName = AppConstants.CAR_OWN)
     private String carOwn;
 
     public String getDriverName() {

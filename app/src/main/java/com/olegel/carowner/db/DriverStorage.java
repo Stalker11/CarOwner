@@ -32,7 +32,7 @@ public class DriverStorage {
     public void write(DriverModel driver) {
         try {
             HelperFactory.getHelper().getDaoDriver().createOrUpdate(driver);
-            Log.d(TAG, "write: ");
+            Log.d(TAG, "write:driver ");
         } catch (SQLException e) {
             Log.d(TAG, "write error: ");
             e.printStackTrace();
@@ -48,6 +48,7 @@ public class DriverStorage {
         List<DriverModel> drivers = null;
         try {
             drivers = HelperFactory.getHelper().getDaoDriver().queryForAll();
+            Log.d(TAG, "readAll: driver");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -68,6 +69,7 @@ public class DriverStorage {
             searchBy.where().like(columnName, generateRequestString(parameter));
             prepared = searchBy.prepare();
             drivers = HelperFactory.getHelper().getDaoDriver().query(prepared);
+            Log.d(TAG, "selectBy: driver");
         } catch (SQLException e) {
             e.printStackTrace();
         }
